@@ -47,7 +47,6 @@ def start_browser():
 
 # --- Scrape One Car ---
 BLOCKED_LINKS = {
-    "https://www.olx.in/en-in/item/cars-c84-used-volkswagen-jetta-in-gota-ahmedabad-iid-1810322564",
     "https://www.olx.in/en-in/item/cars-c84-used-volkswagen-jetta-in-umiya-nagar-mundra-iid-1809228455"
 }
 
