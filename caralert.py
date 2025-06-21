@@ -43,10 +43,15 @@ def send_telegram_alert(msg):
 
 
 def start_browser():
-    options = webdriver.ChromeOptions()
-    options.add_argument("--no-sandbox")
-    options.add_argument("--disable-dev-shm-usage")
-    return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    def start_browser():
+        options = webdriver.ChromeOptions()
+        options.add_argument("--headless")  # Headless is perfect for CI
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--disable-gpu")
+        options.add_argument("--window-size=1920x1080")
+        # ❌ Don't use user-data-dir in GitHub Actions
+        return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
 
 # --- Scrape One Car ---
