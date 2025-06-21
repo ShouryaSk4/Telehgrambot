@@ -5,6 +5,9 @@ import re
 import time
 from pathlib import Path
 
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 import os
 
 BOT_TOKEN = os.getenv('BOT_TOKEN')
@@ -38,12 +41,13 @@ def send_telegram_alert(msg):
     except Exception as e:
         print("Telegram Error:", e)
 
-# --- Start Browser ---
+
 def start_browser():
     options = webdriver.ChromeOptions()
-    options.add_argument("--start-maximized")
-    options.add_argument(f"--user-data-dir={Path(__file__).parent / 'chrome_profile'}")
-    return webdriver.Chrome(options=options)
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+
 
 # --- Scrape One Car ---
 BLOCKED_LINKS = {

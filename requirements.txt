@@ -1,9 +1,6 @@
-# --- Core Dependencies ---
-selenium==4.21.0           # For browser automation
-requests==2.32.3           # For sending Telegram API requests
-
-# --- Optional/Advanced ---
-chromedriver-autoinstaller==0.6.4  # Auto-manages chromedriver version (optional, only if used)
+selenium
+webdriver-manager
+requests
 
 # --- Python Standard Library (no need to pip install) ---
 # re                   # Regex (standard library)
