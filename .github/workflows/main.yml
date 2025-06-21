@@ -3,7 +3,7 @@ name: OLX Car Alert Bot Morning
 on:
   workflow_dispatch:        # Allows manual triggering from GitHub UI
   schedule:
-    - cron: '0 20 * * *'      # Runs every day at 08:00 UTC
+    - cron: '30 14 * * *'      # Runs every day at 08:00 UTC
 
 jobs:
   run-scraper:
