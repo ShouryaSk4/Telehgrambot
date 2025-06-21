@@ -104,6 +104,7 @@ def scrape_car(driver, car_name, url):
             # Ignore blocked specific links (add your own here)
             blocked_links = [
                 "https://www.olx.in/en-in/item/cars-c84-used-volkswagen-jetta-in-gota-ahmedabad-iid-1810322564",
+                "https://www.olx.in/en-in/item/cars-c84-used-volkswagen-jetta-in-umiya-nagar-mundra-iid-1809228455"
             ]
             if link in blocked_links:
                 continue
