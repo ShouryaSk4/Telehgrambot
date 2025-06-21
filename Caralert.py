@@ -5,9 +5,11 @@ import re
 import time
 from pathlib import Path
 
-# --- Telegram Bot Config ---
-BOT_TOKEN = '8106664532:AAFydJyqQ0iXRrcpq7HB2ucPr9Ju1oBhTHI'
-CHAT_ID = '6864449244'
+import os
+
+BOT_TOKEN = os.getenv('BOT_TOKEN')
+CHAT_ID = os.getenv('CHAT_ID')
+
 
 # --- Cars to Watch: name + link ---
 CAR_LINKS = [
