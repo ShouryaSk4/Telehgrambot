@@ -43,16 +43,19 @@ def send_telegram_alert(msg):
 
 
 def start_browser():
-    def start_browser():
-        options = webdriver.ChromeOptions()
-        options.add_argument("--headless")  # Headless is perfect for CI
-        options.add_argument("--no-sandbox")
-        options.add_argument("--disable-dev-shm-usage")
-        options.add_argument("--disable-gpu")
-        options.add_argument("--window-size=1920x1080")
-        # ❌ Don't use user-data-dir in GitHub Actions
-        return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    options = webdriver.ChromeOptions()
+    options.add_argument("--headless")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--disable-gpu")
+    options.add_argument("--window-size=1920x1080")
 
+    try:
+        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+        return driver
+    except Exception as e:
+        print("❌ Failed to start Chrome WebDriver:", e)
+        return None
 
 # --- Scrape One Car ---
 BLOCKED_LINKS = {
