@@ -1,4 +1,4 @@
-name: OLX Car Alert Bot Morning
+name: OLX Car Alert Bot Evening
 
 on:
   workflow_dispatch:        # Allows manual triggering from GitHub UI
